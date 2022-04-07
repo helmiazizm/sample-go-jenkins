@@ -14,7 +14,7 @@ pipeline{
         }
         stage("Go version, test, build"){
             steps{
-                sh "sudo -S docker-compose up -d --build"
+                sh "$echo '12345678' | sudo -S docker-compose up -d --build"
             }
         }
     }
