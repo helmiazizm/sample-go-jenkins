@@ -5,11 +5,11 @@ node {
     git url: 'https://github.com/helmiazizm/sample-go-jenkins.git'
 
     stage 'Pre-test'
-    sh '${root} version'
+    sh "${root} version"
 
     stage 'Test'
-    sh '${root} test ./... -cover'
+    sh "${root} test ./... -cover"
 
     stage 'Build'
-    sh '${root} build ./...'
+    sh "${root} build ./..."
 }
