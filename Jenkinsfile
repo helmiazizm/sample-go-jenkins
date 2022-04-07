@@ -15,7 +15,7 @@ pipeline{
         }
         stage("Go version, test, build"){
             steps{
-                sh "sudo -S docker-compose up -d --build"
+                sh "docker-compose up -d --build"
             }
         }
     }
