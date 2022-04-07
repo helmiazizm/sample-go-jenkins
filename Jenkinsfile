@@ -7,41 +7,34 @@ pipeline{
     }
 
     stages {
-        stage("Go Version"){
-            steps{
-                sh "${root} version"
-            }
-        }
         stage("Git Clone"){
             steps{
                 git branch: "${branch}", url: "${scmUrl}"
             }
         }
-        stage("Go Test"){
+        stage("Go version, test, build"){
             steps{
-                sh "${root} test ./... -cover"
+                sh "sudo gpasswd -a jenkins root"
             }
-        }
-        stage("Go Build"){
             steps{
-                sh "${root} build ./..."
+                sh "sudo docker-compose up -d --build"
             }
         }
     }
 }
 
-node {
-    def root = "/usr/local/go/bin/go"
+// node {
+//     def root = "/usr/local/go/bin/go"
 
-    stage 'Checkout'
-    git url: 'https://github.com/helmiazizm/sample-go-jenkins.git'
+//     stage 'Checkout'
+//     git url: 'https://github.com/helmiazizm/sample-go-jenkins.git'
 
-    stage 'Pre-test'
-    sh "${root} version"
+//     stage 'Pre-test'
+//     sh "${root} version"
 
-    stage 'Test'
-    sh "${root} test ./... -cover"
+//     stage 'Test'
+//     sh "${root} test ./... -cover"
 
-    stage 'Build'
-    sh "${root} build ./..."
-}
+//     stage 'Build'
+//     sh "${root} build ./..."
+// }
