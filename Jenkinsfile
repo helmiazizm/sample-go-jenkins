@@ -14,24 +14,24 @@ pipeline{
         }
         stage("Go Test, Build, and Dockerize"){
             steps{
-                sh "sudo docker-compose up -d --build"
+                sh "sudo docker-compose up -d -S --build"
             }
         }
     }
 }
 
-node {
-    def root = "/usr/local/go/bin/go"
+// node {
+//     def root = "/usr/local/go/bin/go"
 
-    stage 'Checkout'
-    git url: 'https://github.com/helmiazizm/sample-go-jenkins.git'
+//     stage 'Checkout'
+//     git url: 'https://github.com/helmiazizm/sample-go-jenkins.git'
 
-    stage 'Pre-test'
-    sh "${root} version"
+//     stage 'Pre-test'
+//     sh "${root} version"
 
-    stage 'Test'
-    sh "${root} test ./... -cover"
+//     stage 'Test'
+//     sh "${root} test ./... -cover"
 
-    stage 'Build'
-    sh "${root} build ./..."
-}
+//     stage 'Build'
+//     sh "${root} build ./..."
+// }
