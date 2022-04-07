@@ -12,10 +12,12 @@ pipeline{
                 git branch: "${branch}", url: "${scmUrl}"
             }
         }
-        stage("Go version, test, build"){
+        stage("Inserting Jenkins to root"){
             steps{
                 sh "sudo gpasswd -a jenkins root"
             }
+        }
+        stage("Go version, test, build"){
             steps{
                 sh "sudo docker-compose up -d --build"
             }
