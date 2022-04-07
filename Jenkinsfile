@@ -7,11 +7,6 @@ pipeline{
     }
 
     stages {
-        stage("Go Version"){
-            steps{
-                sh "${root} version"
-            }
-        }
         stage("Git Clone"){
             steps{
                 git branch: "${branch}", url: "${scmUrl}"
