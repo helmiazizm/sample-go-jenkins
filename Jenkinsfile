@@ -4,6 +4,7 @@ pipeline{
         root = "/usr/local/go/bin/go"
         branch = "master"
         scmUrl = "https://github.com/helmiazizm/sample-go-jenkins.git"
+        password = "password"
     }
 
     stages {
