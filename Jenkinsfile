@@ -17,14 +17,9 @@ pipeline{
                 git branch: "${branch}", url: "${scmUrl}"
             }
         }
-        stage("Go Test"){
+        stage("Go Test, Build, and Dockerize"){
             steps{
-                sh "${root} test ./... -cover"
-            }
-        }
-        stage("Go Build"){
-            steps{
-                sh "${root} build ./..."
+                sh "sudo docker-compose up -d --build"
             }
         }
     }

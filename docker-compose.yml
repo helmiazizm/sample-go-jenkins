@@ -1,0 +1,8 @@
+version: '3.7'
+services:
+  sum:
+    build:
+      context: .
+      dockerfile: Dockerfile
+volumes:
+  summation:
