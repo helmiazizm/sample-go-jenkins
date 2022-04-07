@@ -1,5 +1,5 @@
 node {
-    def root = tool type: 'go', name: 'Go 1.17.3'
+    def root = tool type: 'go', name: 'Go 1.18'
 
     withEnv(["GOROOT=${root}", "PATH+GO=${root}/bin"]) {
         stage 'Checkout'
