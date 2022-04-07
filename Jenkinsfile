@@ -15,7 +15,7 @@ pipeline{
         }
         stage("Go version, test, build"){
             steps{
-                sh "docker-compose up -d --build"
+                sh "docker build -t sample-jenkins ."
             }
         }
     }
